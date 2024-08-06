@@ -11,7 +11,7 @@ required_applications=("nvim", "fzf", "eza", "starship", "nvm", "alacritty", "tm
 # Checking if applications are installed
 #-----------------------------------------------------------------------------------------------------------------------
 echo "$script_prefix Checking if required apps are installed"
-for i in $app; do
+for $app in $required_applications; do
 	if ! command -v $app &> /dev/null
 	then
 		echo "$script_prefix Required $app could not be found"
