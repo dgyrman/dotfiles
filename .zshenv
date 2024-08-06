@@ -2,3 +2,4 @@
 # Define developer directory path
 #----------------------------------------------------------------------------------------------------------------------
 DEVELOPER_DIR=~/Developer
+WORKSPACE_DIR=$DEVELOPER_DIR/workspaces

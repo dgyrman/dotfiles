@@ -7,4 +7,4 @@ script_prefix="[Linux Setup]"
 #-----------------------------------------------------------------------------------------------------------------------
 echo "$script_prefix Creating symlinks"
 
-ln -sf ~/Developer/dotfiles/.config/picom		 ~/.config
+ln -sf ~/Developer/dotfiles/.config/picom	~/.config
