@@ -1,77 +1,37 @@
-[aws]
-symbol = "  "
-
-[buf]
-symbol = " "
-
-[c]
-symbol = " "
-
-[conda]
-symbol = " "
-
-[dart]
-symbol = " "
+format = "$directory"
+right_format = "$git_status$git_branch$golang$nodejs$php$lua$python$rust"
 
 [directory]
+truncation_length = 3
 read_only = " 󰌾"
-
-[docker_context]
-symbol = " "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fossil_branch]
-symbol = " "
+style = "bold blue"
 
 [git_branch]
-symbol = " "
+symbol = ""
+style = "bold blue"
 
 [golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
-[hostname]
-ssh_symbol = " "
-
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
+symbol = "Go "
+style = "bold blue"
 
 [lua]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
+symbol = "Lua "
+style = "bold blue"
 
 [nodejs]
-symbol = " "
+symbol = "Node "
+style = "bold blue"
+
+[python]
+symbol = "Python "
+style = "bold blue"
+
+[rust]
+symbol = "Rust "
+style = "bold blue"
+
+[os]
+disabled = false
 
 [os.symbols]
 Alpaquita = " "
@@ -113,24 +73,3 @@ SUSE = " "
 Ubuntu = " "
 Unknown = " "
 Windows = "󰍲 "
-
-[package]
-symbol = "󰏗 "
-
-[pijul_channel]
-symbol = " "
-
-[python]
-symbol = " "
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[scala]
-symbol = " "
