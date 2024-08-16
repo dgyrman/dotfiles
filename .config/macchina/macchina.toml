@@ -1,0 +1,20 @@
+long_uptime = true
+long_shell = true 
+long_kernel = true 
+current_shell = true
+physical_cores = false
+theme = "custom"
+show = [
+	"Machine",
+	"Kernel",
+	"Distribution",
+	"OperatingSystem",
+	"DesktopEnvironment",
+	"WindowManager",
+	"Terminal",
+	"Shell",
+	"Processor",
+	"ProcessorLoad",
+	"Memory",
+	"Uptime"
+]

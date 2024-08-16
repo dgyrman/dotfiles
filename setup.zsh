@@ -3,21 +3,6 @@
 script_prefix="[Basic Setup]"
 
 #-----------------------------------------------------------------------------------------------------------------------
-# Defining required applications
-#-----------------------------------------------------------------------------------------------------------------------
-required_applications=("nvim" "fzf" "eza" "starship" "nvm" "alacritty" "tmux" "git" "go" "cargo" "macchina")
-
-#----------------------------------------------------------------------------------------------------------------------- 
-# Checking if applications are installed
-#-----------------------------------------------------------------------------------------------------------------------
-echo "$script_prefix Checking if required apps are installed"
-for app in $required_applications; do
-	if ! command -v $app &> /dev/null
-	then echo "$script_prefix Required application $app could not be found"
-	fi 
-done
-
-#-----------------------------------------------------------------------------------------------------------------------
 # Creating .config directory
 #-----------------------------------------------------------------------------------------------------------------------
 echo "$script_prefix Creating config directory"
@@ -32,6 +17,7 @@ rm -rf ~/.config/alacritty ~/.config/nvim
 
 ln -sf ~/Developer/dotfiles/.config/alacritty		 ~/.config
 ln -sf ~/Developer/dotfiles/.config/nvim			 ~/.config 
+ln -sf ~/Developer/dotfiles/.config/macchina/		 ~/.config
 ln -sf ~/Developer/dotfiles/.config/starship.toml	 ~/.config
 
 ln -sf ~/Developer/dotfiles/.scripts				 ~

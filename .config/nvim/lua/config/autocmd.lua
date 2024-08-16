@@ -7,6 +7,13 @@ autocmd("BufWritePre", {
 	end,
 })
 
+autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = '*.{rasi}',
+  callback = function()
+	vim.bo.filetype = 'rasi'
+  end
+})
+
 -- Fixes annoying jump when tab key is pressed
 vim.api.nvim_create_autocmd("ModeChanged", {
 	pattern = "*",

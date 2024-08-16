@@ -1,0 +1,13 @@
+spacing         = 0
+padding         = 0
+hide_ascii      = true 
+separator       = " "
+key_color       = "Blue"
+separator_color = "White"
+
+[bar]
+visible         = false 
+
+[box.inner_margin]
+x               = 0
+y               = 0
