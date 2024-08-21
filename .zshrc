@@ -8,6 +8,7 @@ source ~/.scripts/workspace-changer.zsh
 #---------------------------------------------------------------------------------------------------------------------- 
 alias l="eza -lahgs type"
 alias c="clear"
+alias dev="cd $DEV_DIR"
 
 alias venv="source venv/bin/activate"
 
