@@ -2,8 +2,15 @@ local lualine = require("lualine")
 local conform = require("conform")
 local theme = require("vscode")
 local fzf_lua = require("fzf-lua")
+local copilot = require("copilot")
 
 require("gitsigns").setup()
+require("copilot_cmp").setup()
+
+copilot.setup({
+	suggestion = { enabled = false },
+	panel = { enabled = false },
+})
 
 fzf_lua.setup({
 	winopts = {

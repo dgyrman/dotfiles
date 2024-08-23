@@ -6,7 +6,8 @@ return {
 	{ "folke/todo-comments.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
 
 	-- NOT NECESSARY STUFF
-	{ "github/copilot.vim" },
+	{ "zbirenbaum/copilot.lua", cmd = "Copilot", event = "InsertEnter" },
+	{ "zbirenbaum/copilot-cmp" },
 
 	-- DOCSTRING GENERATOR
 	{ "kkoomen/vim-doge" },
