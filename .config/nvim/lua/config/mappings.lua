@@ -1,4 +1,4 @@
-local telescope = require("telescope.builtin")
+local fzf = require("fzf-lua")
 local map = vim.keymap.set
 
 -- OPEN NETRW
@@ -18,18 +18,15 @@ map("n", "<C-j>", "mzJ`z")
 map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
 
--- TELESCOPE
-map("n", "<leader>t", telescope.find_files)
-map("n", "<leader>ff", telescope.live_grep)
-map("n", "<leader>b", telescope.buffers)
+-- TODO-COMMENTS
+map("n", "<leader>td", ":TodoFzfLua<CR>")
+
+-- NEOGEN
+map("n", "<leader>ds", ":Neogen<CR>")
+
+-- FZF
+map("n", "<leader>t", fzf.files)
+map("n", "<leader>b", fzf.buffers)
 
 -- SEARCH/REPLACE
 map("n", "<S-r>", require("fzf-lua").grep)
-
--- NVIM-DAP (Debugger)
--- Will figure out later
--- map.set("n", "<leader>du", "<cmd>:lua require('dapui').toggle()<cr>", {})
--- map.set("n", "<leader>dc", "<cmd>:lua require('dap').continue()<cr>")
--- map.set("n", "<S-b>", "<cmd>:lua require('dap').toggle_breakpoint()<cr>")
--- map.set("n", "<S-i>", "<cmd>:lua require('dap').step_into()<cr>", {})
--- map.set("n", "<S-o>", "<cmd>:lua require('dap').step_over()<cr>", {})

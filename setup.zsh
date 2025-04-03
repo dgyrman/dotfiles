@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-script_prefix="[Basic Setup]"
+script_prefix="[SETUP]"
 
 #-----------------------------------------------------------------------------------------------------------------------
 # Creating .config directory
@@ -13,30 +13,15 @@ mkdir -p ~/.config
 #-----------------------------------------------------------------------------------------------------------------------
 echo "$script_prefix Creating symlinks"
 
-rm -rf ~/.config/alacritty ~/.config/nvim 
+rm -rf ~/.config/ghostty 
+rm -rf ~/.config/nvim 
 
-ln -sf ~/Developer/dotfiles/.config/alacritty		 ~/.config
-ln -sf ~/Developer/dotfiles/.config/nvim			 ~/.config 
-ln -sf ~/Developer/dotfiles/.config/macchina/		 ~/.config
+ln -sf ~/Developer/dotfiles/.config/ghostty		 ~/.config
+ln -sf ~/Developer/dotfiles/.config/nvim		 ~/.config 
+ln -sf ~/Developer/dotfiles/.config/macchina		 ~/.config
 ln -sf ~/Developer/dotfiles/.config/starship.toml	 ~/.config
 
-ln -sf ~/Developer/dotfiles/.scripts				 ~
-ln -sf ~/Developer/dotfiles/.tmux.conf				 ~
-ln -sf ~/Developer/dotfiles/.zshrc					 ~
-ln -sf ~/Developer/dotfiles/.zshenv					 ~
-
-#-----------------------------------------------------------------------------------------------------------------------
-# Separate installation by plattform 
-#-----------------------------------------------------------------------------------------------------------------------
-echo "$script_prefix What is currently installed?"
-select plattform in "macOS" "Linux"; do
-    case $plattform in
-        macOS ) ./additional-setup-mac.zsh; break;;
-        Linux ) ./additional-setup-linux.zsh; break;;
-    esac
-done
-
-#-----------------------------------------------------------------------------------------------------------------------
-# Saying goodbye
-#-----------------------------------------------------------------------------------------------------------------------
-echo "$script_prefix Done"
+ln -sf ~/Developer/dotfiles/.scripts			 ~
+ln -sf ~/Developer/dotfiles/.tmux.conf			 ~
+ln -sf ~/Developer/dotfiles/.zshrc			 ~
+ln -sf ~/Developer/dotfiles/.zshenv			 ~

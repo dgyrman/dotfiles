@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Enabling write on save
 autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
@@ -7,22 +8,26 @@ autocmd("BufWritePre", {
 	end,
 })
 
+-- Setting right filetype for typoscript (annoying TYPO3 script language)
 autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = "*.{rasi}",
-	callback = function()
-		vim.bo.filetype = "rasi"
-	end,
-})
-
-autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = "*.{typoscript}",
+	pattern = { "*.{typoscript}", "*.{tsconfig}" },
 	callback = function()
 		vim.bo.filetype = "typoscript"
 	end,
 })
 
--- Fixes annoying jump when tab key is pressed
-vim.api.nvim_create_autocmd("ModeChanged", {
+-- Setting right colorcolumn for python
+vim.api.nvim_create_augroup("python_colorcolumn", { clear = true })
+autocmd("FileType", {
+	group = "python_colorcolumn",
+	pattern = "python",
+	callback = function()
+		vim.opt.colorcolumn = "100"
+	end,
+})
+
+-- Fixes somehow annoying jump when tab key is pressed
+autocmd("ModeChanged", {
 	pattern = "*",
 	callback = function()
 		if

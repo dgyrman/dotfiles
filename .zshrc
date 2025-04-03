@@ -2,15 +2,17 @@
 # Source custom scripts 
 #---------------------------------------------------------------------------------------------------------------------- 
 source ~/.scripts/workspace-changer.zsh
+source ~/.scripts/start-tmux.zsh
 
 #---------------------------------------------------------------------------------------------------------------------- 
 # Shortcuts
 #---------------------------------------------------------------------------------------------------------------------- 
 alias l="eza -lahgs type"
+alias ll="l"
 alias c="clear"
 alias dev="cd $DEV_DIR"
 
-alias venv="source venv/bin/activate"
+alias venv="source .venv/bin/activate"
 
 alias gf="git fetch"
 alias gs="git status"
@@ -18,6 +20,10 @@ alias gc="git checkout"
 alias ga="git add"
 alias gcm="git commit -S -m"
 alias gp="git push"
+alias gl="git log --oneline --graph --decorate --all"
+
+alias markdown="glow"
+alias tks="tmux kill-session"
 
 #---------------------------------------------------------------------------------------------------------------------- 
 # Overrides 
@@ -42,4 +48,3 @@ fi
 # Setup starship, because I am lazy 
 #---------------------------------------------------------------------------------------------------------------------- 
 eval "$(starship init zsh)"
-

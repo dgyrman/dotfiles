@@ -10,6 +10,10 @@ style = "bold blue"
 symbol = ""
 style = "bold blue"
 
+[php]
+symbol = "PHP "
+style = "bold blue"
+
 [golang]
 symbol = "Go "
 style = "bold blue"

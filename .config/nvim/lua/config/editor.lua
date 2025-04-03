@@ -1,50 +1,49 @@
 local lualine = require("lualine")
-local conform = require("conform")
-local theme = require("vscode")
+local gitsigns = require("gitsigns")
 local fzf_lua = require("fzf-lua")
-local copilot = require("copilot")
+local conform = require("conform")
 
-require("gitsigns").setup()
-require("copilot_cmp").setup()
+vim.cmd("colorscheme xcodedarkhc")
 
-copilot.setup({
-	suggestion = { enabled = false },
-	panel = { enabled = false },
+-- Iniatiate git signs plugin (Fancy git marks near the line numbers)
+gitsigns.setup({
+	current_line_blame = true,
 })
 
+-- FZF Lua
 fzf_lua.setup({
+	file_icon_padding = "",
+	defaults = {
+		async = true,
+		git_icons = true,
+		file_icons = true,
+	},
 	winopts = {
-		backdrop = 100,
+		fullscreen = true,
 	},
 })
 
-theme.setup({})
-theme.load()
-
-conform.setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		javascript = { { "prettier" } },
-		html = { { "prettier" } },
-		scss = { { "prettier" } },
-		go = { { "gofmt", lsp_format = "fallback" } },
-	},
-})
-
+-- Fancy bar
 lualine.setup({
 	options = {
+		theme = "auto",
 		icons_enabled = false,
-		theme = "vscode",
 		component_separators = { left = " ", right = " " },
 		section_separators = { left = " ", right = " " },
-		ignore_focus = {},
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = { "branch" },
 		lualine_c = { "filename" },
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_x = { "encoding", "filetype" },
+	},
+})
+
+-- SETUP CONFORM
+conform.setup({
+	formatters_by_ft = {
+		lua = { "stylua" },
+		python = { "isort", "black" },
+		javascript = { "prettier" },
 	},
 })

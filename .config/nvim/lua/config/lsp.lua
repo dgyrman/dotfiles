@@ -26,13 +26,10 @@ lsp_zero.on_attach(function(_, bufnr)
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "path" },
-			{ name = "copilot" },
+			{ name = "nvim_lsp_signature_help" },
 		},
 		formatting = lsp_zero.cmp_format({ details = true }),
-		window = {
-			completion = cmp.config.window.bordered(),
-			documentation = cmp.config.window.bordered(),
-		},
+		window = {},
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 			["<Tab>"] = cmp_action.luasnip_supertab(),
@@ -63,15 +60,34 @@ mason_lspconfig.setup({
 		"pyright",
 		"intelephense",
 		"emmet_ls",
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"bashls",
 		"htmx",
+		"somesass_ls",
 	},
 	handlers = {
 		function(server_name)
 			require("lspconfig")[server_name].setup({})
+		end,
+
+		emmet_ls = function()
+			require("lspconfig").emmet_ls.setup({
+				filetypes = { "html", "twig" },
+			})
+		end,
+
+		ts_ls = function()
+			require("lspconfig").ts_ls.setup({
+				filetypes = { "js", "ts", "svelte" },
+			})
+		end,
+
+		cssls = function()
+			require("lspconfig").cssls.setup({
+				filetypes = { "css", "sass", "scss" },
+			})
 		end,
 
 		bashls = function()
@@ -87,6 +103,9 @@ mason_lspconfig.setup({
 
 		intelephense = function()
 			require("lspconfig").intelephense.setup({
+				init_options = {
+					licenceKey = "/Users/dmytrogyrman/Developer/confidential/licences/intelephense.txt",
+				},
 				settings = {
 					intelephense = {
 						format = {
