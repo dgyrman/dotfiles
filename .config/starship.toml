@@ -1,5 +1,5 @@
 format = "$directory"
-right_format = "$git_status$git_branch$golang$nodejs$php$lua$python$rust"
+right_format = "$git_status$git_branch"
 
 [directory]
 truncation_length = 3
@@ -9,71 +9,3 @@ style = "bold blue"
 [git_branch]
 symbol = ""
 style = "bold blue"
-
-[php]
-symbol = "PHP "
-style = "bold blue"
-
-[golang]
-symbol = "Go "
-style = "bold blue"
-
-[lua]
-symbol = "Lua "
-style = "bold blue"
-
-[nodejs]
-symbol = "Node "
-style = "bold blue"
-
-[python]
-symbol = "Python "
-style = "bold blue"
-
-[rust]
-symbol = "Rust "
-style = "bold blue"
-
-[os]
-disabled = false
-
-[os.symbols]
-Alpaquita = " "
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-Artix = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "󰛓 "
-Gentoo = " "
-HardenedBSD = "󰞌 "
-Illumos = "󰈸 "
-Linux = " "
-Mabox = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = "󰈺 "
-openSUSE = " "
-OracleLinux = "󰌷 "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = "󰀘 "
-Solus = "󰠳 "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = "󰍲 "
