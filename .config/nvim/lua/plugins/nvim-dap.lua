@@ -2,10 +2,10 @@ return {
     "mfussenegger/nvim-dap",
     enabled = false,
     keys = {
-        { "<leader>db",  require('dap').toggle_breakpoint },
-        { "<leader>dc",  require('dap').continue },
-        { "<leader>dr",  require('dap').repl.open },
-        { "<leader>dso", require('dap').step_over },
-        { "<leader>dsi", require('dap').step_into },
+        { "<leader>db",  "<cmd>DapToggleBreakpoint<cr>" },
+        { "<leader>dc",  "<cmd>DapContinue<cr>" },
+        { "<leader>dr",  "<cmd>DapToggleRepl<cr>" },
+        { "<leader>dso", "<cmd>DapStepInto<cr>" },
+        { "<leader>dsi", "<cmd>DapStepOut<cr>" },
     }
 }

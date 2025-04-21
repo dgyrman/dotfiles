@@ -1,5 +1,5 @@
 # vi: ft=conf :
-
+shell-integration = bash
 # normal colors
 palette = 0=#1F1F1F
 palette = 1=#F44747
