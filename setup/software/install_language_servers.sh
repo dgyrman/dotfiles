@@ -38,7 +38,7 @@ mkdir -p $superhtml_bin_dir
 
 # platform corresponds to filename of the binary on relases page in reporsitory
 platform="aarch64-macos"
-if [[ "$(uname -o)" == "Linux" && -e "/etc/fedora-release" ]]; then
+if [ -e "/etc/fedora-release" ]; then
     platfrom="x86_64-linux-musl"
 fi
 

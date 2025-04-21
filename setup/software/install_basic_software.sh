@@ -31,7 +31,7 @@ if [ "$(uname -o)" == "Darwin" ]; then
     brew install "${packages[@]}"
 fi
 
-if [[ "$(uname -o)" == "Linux" && -e "/etc/fedora-release" ]]; then
+if [ -e "/etc/fedora-release" ]; then
     echo -e "${prefix} ${purple}You are... using Fedora? Fuiyoh! Installing packages now${nc}"
     dnf install "${packages[@]}"
 fi
@@ -46,7 +46,7 @@ if [ "$(uname -o)" == "Darwin" ]; then
     brew install pyenv
 fi
 
-if [[ "$(uname -o)" == "Linux" && -e "/etc/fedora-release" ]]; then
+if [ -e "/etc/fedora-release" ]; then
     curl -fsSL https://pyenv.run | bash
 fi
 

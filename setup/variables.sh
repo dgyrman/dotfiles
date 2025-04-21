@@ -25,6 +25,7 @@ error() {
 finish() {
     echo -e "${1} ${green}finished execution${nc}"
     cd $HOME/developer/dotfiles/setup
+    source $HOME/.bashrc
 }
 
 export -f get_script_prefix

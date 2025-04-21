@@ -8,7 +8,7 @@ branch="release-0.11"
 
 # install required package to build neovim
 info ${prefix} "installing prerequisites"
-if [[ "$(uname -o)" == "Linux" && -e "/etc/fedora-release" ]]; then
+if [ -e "/etc/fedora-release" ]; then
     sudo dnf -y install ninja-build cmake gcc make gettext curl glibc-gconv-extra
 elif [[ "$(uname -o)" == "Darwin" ]]; then
     brew install ninja cmake gettext curl
