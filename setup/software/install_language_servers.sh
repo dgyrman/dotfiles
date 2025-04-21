@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 
 prefix=$(get_script_prefix "install_language_servers")
 
-luals_build_dir="$HOME/developer/workspaces/build/lua-language-server"
 luals_bin_dir="$HOME/.local/bin"
+luals_app_dir="$HOME/.local/share"
 superhtml_bin_dir="$HOME/.local/bin"
 
 language_servers=(
@@ -19,13 +21,22 @@ language_servers=(
 
 # install most of the servers using npm
 info ${prefix} "installing following using npm: ${language_servers[*]}"
-sudo npm i -g $language_servers[*]
+volta install "${language_servers[@]}"
 
-# clone, navigate to and build lua language server  
+# clone, navigate to, update and build lua language server  
 info ${prefix} "manually installing the goddamn lua language server"
-git clone https://github.com/LuaLS/lua-language-server $luals_build_dir
-cd $luals_build_dir
-./make.sh
+platform="lua-language-server-3.14.0-darwin-arm64"
+if [ -e "/etc/fedora-release" ]; then
+    platfrom="lua-language-server-3.14.0-linux-x64-musl"
+fi
+
+# download, unpack, move binary and cleanup
+wget "https://github.com/LuaLS/lua-language-server/releases/download/3.14.0/${platform}.tar.gz" \
+    -O "$luals_app_dir/${platform}.tar.gz"
+
+mkdir -p "$luals_app_dir/lua-language-server"
+tar -C "$luals_app_dir/lua-language-server" -xzvf "$luals_app_dir/${platform}.tar.gz" 
+rm -rf "$luals_app_dir/${platform}.tar.gz"
 
 # create corresponding bin dir for lua language server
 # copy startup script and correct permissions

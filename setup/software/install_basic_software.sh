@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 prefix=$(get_script_prefix "install_basic_software")
 packages=(
@@ -28,17 +29,18 @@ if [ "$(uname -o)" == "Darwin" ]; then
 
     # finally install the shit
     info ${prefix} "installing following packages ${packages[*]}"
-    brew install $packages[*]
+    brew install "${packages[@]}"
 fi
 
 if [ -e "/etc/fedora-release" ]; then
     echo -e "${prefix} ${purple}You are... using Fedora? Fuiyoh! Installing packages now${nc}"
-    sudo dnf install $packages[*]
+    sudo dnf install "${packages[@]}"
 fi
 
 # install volte (node version manager) 
 info ${prefix} "installing node version manager"
-curl https://get.volta.sh | bash
+curl https://get.volta.sh | bash -s -- --skip-setup
+volta install node@22
 
 # install pyenv (python version manager)
 info ${prefix} "installing python version manager"
@@ -49,6 +51,9 @@ fi
 if [ -e "/etc/fedora-release" ]; then
     curl -fsSL https://pyenv.run | bash
 fi
+
+# install starship
+curl -sS https://starship.rs/install.sh | sh
 
 # write final message for this script
 finish $prefix

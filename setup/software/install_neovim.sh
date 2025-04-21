@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 
 prefix=$(get_script_prefix "install_neovim")
 

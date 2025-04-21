@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 
 prefix=$(get_script_prefix "install_ghostty")
 zig_bin_dir="$HOME/developer/bin/zig/bin"
@@ -7,7 +9,10 @@ ghostty_version="v1.1.3"
 
 # if setup runs on macOS just exit, I don't want to mess with xcode
 if [ "$(uname -o)" == "Darwin" ]; then
-    error $prefix "just download dmg, don't even bother to mess with xcode shit"
+    warn $prefix "just download dmg, don't even bother to mess with xcode shit"
+    
+    # write final message for this script
+    finish $prefix
     return
 fi
 

@@ -1,2 +1,3 @@
-#!/bin/bash
-exec "$HOME/developer/workspaces/build/lua-language-server/bin/lua-language-server" "$@"
+#!/usr/bin/env bash
+
+exec "$HOME/.local/share/lua-language-server/bin/lua-language-server" "$@"

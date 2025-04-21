@@ -1,7 +1,11 @@
+alias l="ls --color -lAhkgs --group-directories-first"
+if [ "$(uname -o)" == "Darwin" ]; then
+    alias l="gls --color -lAhkgs --group-directories-first"
+fi
+alias ll="l"
+
 alias vi="nvim"
 alias vim="nvim"
-alias l="gls --color -lAhkgs --group-directories-first"
-alias ll="l"
 alias c="clear"
 alias dev="cd $CUSTOM_DEV_DIR"
 alias md="glow"
