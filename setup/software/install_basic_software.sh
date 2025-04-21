@@ -27,13 +27,13 @@ if [ "$(uname -o)" == "Darwin" ]; then
     packages+=("coreutils")
 
     # finally install the shit
-    info ${prefix} "installing following packages ${packages[@]}"
-    brew install "${packages[@]}"
+    info ${prefix} "installing following packages ${packages[*]}"
+    brew install $packages[*]
 fi
 
 if [ -e "/etc/fedora-release" ]; then
     echo -e "${prefix} ${purple}You are... using Fedora? Fuiyoh! Installing packages now${nc}"
-    sudo dnf install "${packages[@]}"
+    sudo dnf install $packages[*]
 fi
 
 # install volte (node version manager) 

@@ -25,7 +25,7 @@ fi
 info $prefix "fetching updates and choosing version ${ghostty_version}"
 cd $ghostty_build_dir
 git fetch
-git checkout tags/${ghostty_version} main
+git checkout tags/${ghostty_version}
 
 # build ghostty
 info $prefix "building ghostty into ${HOME}/.local"

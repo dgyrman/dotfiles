@@ -18,8 +18,8 @@ language_servers=(
 
 
 # install most of the servers using npm
-info ${prefix} "installing following using npm: ${language_servers[@]}"
-sudo npm i -g "${language_servers[@]}"
+info ${prefix} "installing following using npm: ${language_servers[*]}"
+sudo npm i -g $language_servers[*]
 
 # clone, navigate to and build lua language server  
 info ${prefix} "manually installing the goddamn lua language server"
