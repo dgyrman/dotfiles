@@ -33,7 +33,7 @@ fi
 
 if [ -e "/etc/fedora-release" ]; then
     echo -e "${prefix} ${purple}You are... using Fedora? Fuiyoh! Installing packages now${nc}"
-    dnf install "${packages[@]}"
+    sudo dnf install "${packages[@]}"
 fi
 
 # install volte (node version manager) 
