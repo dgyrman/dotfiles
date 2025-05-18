@@ -6,9 +6,9 @@ export CUSTOM_DEV_DIR="$HOME/developer"
 export CUSTOM_WS_DIR="$CUSTOM_DEV_DIR/workspaces"
 export CUSTOM_BIN_DIR="$CUSTOM_DEV_DIR/bin"
 
-if [[ "$(uname -o)" == "Darwin" ]]
-then
+if [[ "$(uname -o)" == "Darwin" ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 fi
 
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -16,5 +16,6 @@ fi
 
 [[ -d $VOLTA_HOME ]] && export PATH="$VOLTA_HOME/bin:$PATH"
 
-export PATH="$GOPATH/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/usr/local/go/bin

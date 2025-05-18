@@ -14,5 +14,5 @@ map("n", "<C-j>", "mzJ`z")
 map("v", "<S-j>", ":m '>+1<CR>gv=gv")
 map("v", "<S-k>", ":m '<-2<CR>gv=gv")
 
-map("i", "<C-a>", vim.lsp.completion.get)
 map("n", "gl", vim.diagnostic.open_float)
+map("n", "gd", vim.lsp.buf.definition)

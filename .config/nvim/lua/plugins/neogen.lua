@@ -6,7 +6,7 @@ return {
         { "<leader>ds", ":Neogen<CR>" }
     },
     opt = {
-        snippet_engine = "nvim",
+        snippet_engine = "luasnip",
         languages = {
             python = {
                 template = {

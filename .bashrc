@@ -24,5 +24,3 @@ alias gl="git log --oneline --graph --decorate --all"
 [ -f ~/.scripts/start-tmux.sh ] && source ~/.scripts/start-tmux.sh
 
 eval "$(starship init bash)"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"

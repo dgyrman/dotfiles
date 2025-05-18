@@ -9,7 +9,7 @@ ghostty_version="v1.1.3"
 
 # if setup runs on macOS just exit, I don't want to mess with xcode
 if [ "$(uname -o)" == "Darwin" ]; then
-    warn $prefix "just download dmg, don't even bother to mess with xcode shit"
+    warning $prefix "just download the dmg file"
     
     # write final message for this script
     finish $prefix

@@ -13,9 +13,6 @@ opt.number = true
 -- Always show the sign column with a width of 3 (e.g., for git or diagnostics signs)
 opt.signcolumn = "yes:3"
 
--- Draw a vertical line at the 100th column (useful for line length indication)
-opt.colorcolumn = "100"
-
 -- Always display the last status line (global status line)
 opt.laststatus = 3
 
@@ -27,7 +24,7 @@ opt.laststatus = 3
 opt.shortmess = "IsW"
 
 -- Use the system clipboard for all operations (copy/paste)
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamedplus"
 
 -- Disable line wrapping
 opt.wrap = false
@@ -55,18 +52,6 @@ opt.expandtab = true
 -- Enable persistent undo so that undo history is saved across sessions
 opt.undofile = true
 
-
--- Configure completion behavior:
--- 'menu' - show completion menu,
--- 'menuone' - show menu even if only one match,
--- 'noselect' - don't auto-select a match,
--- 'noinsert' - don't insert text until selection is confirmed
-opt.completeopt = { 'menu', 'menuone', 'noselect', 'noinsert' }
-
--- Append 'c' to shortmess to avoid showing the completion message in the command line
-opt.shortmess:append('c')
-
-
 -- Configure how diagnostics are displayed
 vim.diagnostic.config({
     -- Show diagnostics as virtual text inline with code
@@ -82,3 +67,37 @@ vim.diagnostic.config({
         },
     },
 })
+
+-- Configure status line
+vim.o.statusline = table.concat {
+    "%f ",                           -- file name
+    "%= %{v:lua.get_git_branch()} ", -- git branch
+}
+
+function _G.get_mode()
+    local modes = {
+        n = "NORMAL",
+        i = "INSERT",
+        v = "VISUAL",
+        V = "V-LINE",
+        [""] = "V-BLOCK",
+        c = "COMMAND",
+        R = "REPLACE",
+        t = "TERMINAL"
+    }
+    local current_mode = vim.api.nvim_get_mode().mode
+    return "[" .. (modes[current_mode] or current_mode) .. "]"
+end
+
+function _G.get_git_branch()
+    local handle = io.popen("git -C " .. vim.fn.expand("%:p:h") .. " rev-parse --abbrev-ref HEAD 2>/dev/null")
+    if handle == nil then return "" end
+    local branch = handle:read("*a") or ""
+    handle:close()
+    branch = branch:gsub("\n", "")
+    if branch == "" then return "" end
+    return branch
+end
+
+-- Configure line number in netrw
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'

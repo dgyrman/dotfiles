@@ -23,8 +23,12 @@ language_servers=(
 info ${prefix} "installing following using npm: ${language_servers[*]}"
 volta install "${language_servers[@]}"
 
+# install gopls
+info ${prefix} "manually installing go language server (gopls)"
+go install golang.org/x/tools/gopls@latest
+
 # clone, navigate to, update and build lua language server  
-info ${prefix} "manually installing the goddamn lua language server"
+info ${prefix} "manually installing lua language server"
 platform="lua-language-server-3.14.0-darwin-arm64"
 if [ -e "/etc/fedora-release" ]; then
     platfrom="lua-language-server-3.14.0-linux-x64-musl"
@@ -44,7 +48,7 @@ cp -f "$HOME/developer/dotfiles/setup/software/templates/lua-language-server" $l
 chmod +x "${luals_bin_dir}/lua-language-server"
 
 # download superhtml language server without building it
-info ${prefix} "manually installing the goddamn html language server"
+info ${prefix} "manually installing html language server"
 mkdir -p $superhtml_bin_dir
 
 # platform corresponds to filename of the binary on relases page in reporsitory

@@ -4,6 +4,7 @@ set -euo pipefail
 
 prefix=$(get_script_prefix "create_home_directories")
 directories=(
+    "$HOME/.ssh"
     "$HOME/.config"
     "$HOME/temporary"
     "$HOME/developer/confidential"
@@ -17,7 +18,7 @@ directories=(
 
 for directory in "${directories[@]}"; do
     info ${prefix} "creating directory ${directory}"
-    mkdir -pm 744 $directory
+    mkdir -pm 700 $directory
 done
 
 # write final message for this script
