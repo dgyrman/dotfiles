@@ -29,10 +29,7 @@ go install golang.org/x/tools/gopls@latest
 
 # clone, navigate to, update and build lua language server  
 info ${prefix} "manually installing lua language server"
-platform="lua-language-server-3.14.0-darwin-arm64"
-if [ -e "/etc/fedora-release" ]; then
-    platfrom="lua-language-server-3.14.0-linux-x64-musl"
-fi
+platform="lua-language-server-3.14.0-linux-x64-musl"
 
 # download, unpack, move binary and cleanup
 wget "https://github.com/LuaLS/lua-language-server/releases/download/3.14.0/${platform}.tar.gz" \
@@ -52,10 +49,7 @@ info ${prefix} "manually installing html language server"
 mkdir -p $superhtml_bin_dir
 
 # platform corresponds to filename of the binary on relases page in reporsitory
-platform="aarch64-macos"
-if [ -e "/etc/fedora-release" ]; then
-    platfrom="x86_64-linux-musl"
-fi
+platfrom="x86_64-linux-musl"
 
 # download, unpack, move binary and cleanup
 wget "https://github.com/kristoff-it/superhtml/releases/download/v0.5.3/${platform}.tar.gz" \
@@ -65,6 +59,3 @@ tar -C "$superhtml_bin_dir" -xzvf "$superhtml_bin_dir/${platform}.tar.gz"
 mv "${superhtml_bin_dir}/${platform}/superhtml" $superhtml_bin_dir
 
 rm -rf "$superhtml_bin_dir/${platform}.tar.gz" "$superhtml_bin_dir/${platform}"
-
-# write final message for this script
-finish $prefix

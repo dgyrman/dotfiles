@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
+set -euo pipefail
 
 prefix=$(get_script_prefix "create_config_symlinks")
 
@@ -8,7 +8,6 @@ dotfile_dir="${HOME}/developer/dotfiles"
 symlinks=(
     ".config/ghostty"
     ".config/nvim"
-    ".config/starship.toml"
     ".scripts"
     ".profile"
     ".bash_profile"
@@ -28,6 +27,3 @@ for symlink in "${symlinks[@]}"; do
     info $prefix "linking ${dotfile_dir}/${symlink} to ${HOME}/${symlink}"    
     ln -s "${dotfile_dir}/${symlink}" "${HOME}/${symlink}"
 done
-
-# write final message for this script
-finish $prefix

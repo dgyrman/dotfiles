@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
 
-# source variable and common functions
-source ./variables.sh
+set -euo pipefail
 
-# prepare system
-source ./prepare/create_home_directories.sh
-source ./prepare/create_config_symlinks.sh
+source "./variables.sh"
 
-# install software
-source ./software/install_basic_software.sh
-source ./software/install_neovim.sh
-source ./software/install_golang.sh
-source ./software/install_language_servers.sh
-source ./software/install_ghostty.sh
+scripts=(
+    # prepare system
+    "./prepare/create_home_directories.sh"
+    "./prepare/create_config_symlinks.sh"
+
+    # install software
+    "./software/install_basic_software.sh"
+    "./software/install_neovim.sh"
+    "./software/install_golang.sh"
+    "./software/install_language_servers.sh"
+    "./software/install_ghostty.sh"
+)
+
+for script in "${scripts[@]}"; do
+    source script
+    cleanup    
+done
 
 # reload shell
 exec bash -l

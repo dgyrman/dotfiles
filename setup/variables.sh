@@ -22,8 +22,7 @@ error() {
     echo -e "${1} ${red}${2}${nc}"
 }
 
-finish() {
-    echo -e "${1} ${green}finished execution${nc}"
+cleanup() {
     cd $HOME/developer/dotfiles/setup
     source $HOME/.profile
 }
@@ -32,3 +31,4 @@ export -f get_script_prefix
 export -f info
 export -f warning
 export -f error
+export -f reset

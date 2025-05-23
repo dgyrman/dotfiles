@@ -12,11 +12,9 @@ return {
             "bash",
             "lua",
 
-            -- vanilla webdev
+            -- frontend
             "html",
             "css",
-
-            -- js
             "javascript",
             "jsdoc",
 

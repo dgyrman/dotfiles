@@ -23,4 +23,4 @@ alias gl="git log --oneline --graph --decorate --all"
 [ -f ~/.scripts/workspace-changer.sh ] && source ~/.scripts/workspace-changer.sh
 [ -f ~/.scripts/start-tmux.sh ] && source ~/.scripts/start-tmux.sh
 
-eval "$(starship init bash)"
+PS1="\[[1;34m\]\W\[[0m\] "

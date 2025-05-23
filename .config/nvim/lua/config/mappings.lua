@@ -5,6 +5,8 @@ map("n", "<leader>x", "<cmd>Rex<cr>")
 
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+map("n", "<Tab>", "<C-w><C-w>")
+map("n", "<S-Tab>", "<C-w>p")
 
 map("n", "<S-w>", ":w<CR>")
 map("n", "<S-v>", "_vg_")
